@@ -1,0 +1,91 @@
+﻿<Window x:Class="Stenografia.MainWindow"
+         xmlns:chartingToolkit="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Stenografia"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="1200">
+    <Grid Margin="0,0,-0.4,-0">
+
+
+        <Button x:Name="btnOpenFile" Click="btnOpenFile_Click" Content="Wybierz bitmape" Margin="76,29,862,509.4"/>
+
+
+        <Slider x:Name="sRed" IsSnapToTickEnabled="True" Value="1" Maximum="8" Minimum="0" TickPlacement="BottomRight" TickFrequency="1" Margin="829,163,151,367.4" Height="40"/>
+        <TextBox Name="numberOfBytesRed" Text="{Binding ElementName=sRed, Path=Value, UpdateSourceTrigger=PropertyChanged}" TextChanged="RefreshAfterValueChangeInTextBoxes"  TextAlignment="Center" Width="40" Height="30" Margin="1059,163,95,377.4" RenderTransformOrigin="0.5,0.5" >
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.106"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <TextBox
+     Name="tbMultiLine"
+    TextWrapping="Wrap"
+     AcceptsReturn="True"
+     VerticalScrollBarVisibility="Visible" Margin="476,125,439,322.4"
+>
+           
+        </TextBox>
+
+        <Image Height="200" HorizontalAlignment="Left" Margin="26,137,0,0" Name="image1" Stretch="Fill" VerticalAlignment="Top" Width="400" />
+        <Label Content="Ilosc miejsca w kB:" Height="30" VerticalAlignment="Center" Margin="878,352,145,188.4"/>
+        <Label Content="R:" Height="30" VerticalAlignment="Center" Margin="760,163,401,377.4"/>
+        <Button x:Name="encryptButton" Content="Szyfruj" HorizontalAlignment="Left" Margin="890,78,0,0" VerticalAlignment="Top" Width="102" Height="34" Click="EncryptButton_Click"/>
+        <Button x:Name="btnOpenFileBinnaryFile" Click="BtnOpenFileBinnaryFile_Click" Content="Wybierz plik" Margin="363,29,576,509.4"/>
+        <Label Content="ilosc potrzebnego miejsca kB:" Height="30" VerticalAlignment="Center" Margin="878,402,145,138.4"/>
+        <Label Content="G:" Height="30" VerticalAlignment="Center" Margin="760,218,401,322.4"/>
+        <Label Content="B:" Height="30" VerticalAlignment="Center" Margin="760,266,401,274.4"/>
+        <Label x:Name="labelBitCapacityInBitmap" Content="0" Height="30" VerticalAlignment="Center" Margin="1081,352,35,188.4"/>
+        <Label x:Name="labelAmountOfNeededSpace" Content="0" Height="30" VerticalAlignment="Center" Margin="1081,402,35,138.4"/>
+        <Slider x:Name="sGreen" Maximum="8" Value="1" IsSnapToTickEnabled="True" Minimum="0" TickPlacement="BottomRight" TickFrequency="1" Margin="829,218,151,312.4" Height="40"/>
+        <TextBox x:Name="numberOfBytesGreen" Text="{Binding Value, ElementName=sGreen, UpdateSourceTrigger=PropertyChanged}" TextChanged="RefreshAfterValueChangeInTextBoxes"   TextAlignment="Center" Width="40" Height="30" Margin="1060,212,94,328.4" RenderTransformOrigin="0.5,0.5" >
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.106"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <Slider x:Name="sBlue" Value="1" Maximum="8" IsSnapToTickEnabled="True" Minimum="0" TickPlacement="BottomRight" TickFrequency="1" Margin="829,266,151,264.4" Height="40"/>
+        <TextBox x:Name="numberOfBytesBlue" Text="{Binding Value, ElementName=sBlue, UpdateSourceTrigger=PropertyChanged}" TextChanged="RefreshAfterValueChangeInTextBoxes"   TextAlignment="Center" Width="40" Height="30" Margin="1059,268,95,272.4" RenderTransformOrigin="0.087,0.078" >
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.106"/>
+                    <TranslateTransform X="0.022" Y="-0.031"/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <Image Height="200" HorizontalAlignment="Left" Margin="26,360,0,0" x:Name="encryptedImage" Stretch="Fill" VerticalAlignment="Top" Width="400" />
+        <Button x:Name="btnOpenFileBinnaryFile_Copy" Click="BtnOpenFileBinnaryFile_Click" Content="Wybierz plik" Margin="363,29,577,509.4"/>
+        <Button x:Name="decryptButton" Content="Odszyfruj" HorizontalAlignment="Left" Margin="890,27,0,0" VerticalAlignment="Top" Width="102" Height="34" Click="DecryptButton_Click"/>
+        <Label Content="Czy plik był szyfowany:" Height="30" VerticalAlignment="Center" Margin="878,455,146,85.4"/>
+        <Label x:Name="lIfBitmapWasEncrypted" Content="NIE" Foreground="Red" Height="30" VerticalAlignment="Center" Margin="1081,455,35,85.4"/>
+        <Label Content="pozostała ilość miejsca:" Height="30" VerticalAlignment="Center" Margin="878,490,146,50.4"/>
+        <Label x:Name="labelSpaceWichLeft" Content="0" Height="30" VerticalAlignment="Center" Margin="1081,490,35,50.4"/>
+        <Label Content="Obraz oryginalny, roziar KB:" Height="30" VerticalAlignment="Center" Margin="23,102,999,438.4"/>
+        <Label x:Name="labelOriginalImageSize" Content="0" Height="30" VerticalAlignment="Center" Margin="226,102,797,438.4"/>
+        <Label Content="Zakodowany obraz, rozmiar kB:" Height="30" VerticalAlignment="Center" Margin="25,333,973,207.4"/>
+        <Label x:Name="labelEncryptedImageSize" Content="0" Height="30" VerticalAlignment="Center" Margin="226,333,798,207.4"/>
+
+        <chartingToolkit:Chart  Name="pieChart" Title="Miejsce w kB" 
+
+		VerticalAlignment="Top" Margin="449,303,370,0" Height="267">
+            <chartingToolkit:PieSeries DependentValuePath="Value" 
+
+		IndependentValuePath="Key" ItemsSource="{Binding}" 
+
+		IsSelectionEnabled="True" />
+        </chartingToolkit:Chart>
+    </Grid>
+</Window>
