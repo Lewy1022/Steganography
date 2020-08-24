@@ -1,5 +1,5 @@
-# Project Name
-> Here goes your awesome project description!
+# Steganography
+Simple steganography desktop app created witch c# and WPF. App was created as school project. This project allows users to encrypt plain text in to images.
 
 ## Table of contents
 * [General info](#general-info)
@@ -8,42 +8,31 @@
 * [Setup](#setup)
 * [Features](#features)
 * [Status](#status)
-* [Inspiration](#inspiration)
-* [Contact](#contact)
 
 ## General info
-Add more general information about project. What the purpose of the project is? Motivation?
+Thanks to this app user can encrypt text in image. There is possibility to modify amount of bits on which text will be saved. Encrypted image can be decrypted in the app. 
 
 ## Screenshots
 ![Example screenshot](./img/screenshot.png)
 
 ## Technologies
-* Tech 1 - version 1.0
-* Tech 2 - version 2.0
-* Tech 3 - version 3.0
+* C# 
+* .Net Framevork - version 4.72
+* WPF 
 
 ## Setup
-Describe how to install / setup your local environement / add link to demo version.
+To run app user should open "Steganografia.exe" file in Windows 10/7.
 
-## Code Examples
-Show examples of usage:
-`put-your-code-here`
+
 
 ## Features
 List of features ready and TODOs for future development
-* Awesome feature 1
-* Awesome feature 2
-* Awesome feature 3
+* User can choose on which bytes from rgb in image, text will be written.
+* Pie chart shows how much free space left in image to encode text.
+* App allows to encrypt text in image as well as decrypt tex from image.
 
-To-do list:
-* Wow improvement to be done 1
-* Wow improvement to be done 2
+
 
 ## Status
-Project is: _in progress_, _finished_, _no longer continue_ and why?
+Project is:  _no longer continue_ 
 
-## Inspiration
-Add here credits. Project inspired by..., based on...
-
-## Contact
-Created by [@flynerdpl](https://www.flynerd.pl/) - feel free to contact me!
